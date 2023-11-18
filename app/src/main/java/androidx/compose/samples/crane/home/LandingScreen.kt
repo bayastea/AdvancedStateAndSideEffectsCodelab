@@ -38,6 +38,7 @@ fun LandingScreen(onTimeout: () -> Unit, modifier: Modifier = Modifier) {
         // これは常に、LandingScreenが再構成された最新のonTimeout関数を参照する。
         // 副作用の進行中にonTimeOutが変更された時を考慮しているらしい
         // LaunchedEffectとともに使われることが一般的らしい
+        // 今回はコルーチン進行中にonTimeoutの変更があった場合のことを考えて入れている
         val currentOnTimeout by rememberUpdatedState(onTimeout)
 
         // LandingScreenのライフサイクルに合ったエフェクトを作成する。
